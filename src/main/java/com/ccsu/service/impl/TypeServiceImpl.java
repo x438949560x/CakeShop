@@ -5,6 +5,7 @@ import com.ccsu.dao.impl.TypeDaoImpl;
 import com.ccsu.domain.Type;
 import com.ccsu.service.TypeService;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class TypeServiceImpl implements TypeService {
@@ -12,6 +13,23 @@ public class TypeServiceImpl implements TypeService {
 
     @Override
     public List<Type> selectAll() {
-        return typeDao.selectAll();
+        List<Type> list = null;
+        try{
+            list =  typeDao.selectAll();
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    @Override
+    public Type select(int id) {
+        Type t = null;
+        try{
+            t = typeDao.select(id);
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return t;
     }
 }
