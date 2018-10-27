@@ -11,12 +11,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <h1 class="navbar-brand"><a href="index.action">蛋糕店</a></h1>
+                <h1 class="navbar-brand"><a href="${pageContext.request.contextPath}">蛋糕店</a></h1>
             </div>
             <!--navbar-header-->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="index.action" class="active">首页</a></li>
+                    <li><a href="${pageContext.request.contextPath}" class="active">首页</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle " data-toggle="dropdown">商品分类<b class="caret"></b></a>
                         <ul class="dropdown-menu multi-column columns-2">
@@ -25,8 +25,9 @@
                                     <div class="col-sm-12">
                                         <h4>商品分类</h4>
                                         <ul class="multi-column-dropdown">
+                                            <li><a class="list" href="${pageContext.request.contextPath}/goods_list?id=0&pageNumber=1">全部商品</a></li>
                                             <c:forEach items="${typeList}" var="t">
-                                            <li><a class="list" href="goods.action?typeid=${t.id}">${t.name}</a></li>
+                                            <li><a class="list" href="${pageContext.request.contextPath}/goods_list?id=${t.id}&pageNumber=1">${t.name}</a></li>
                                             </c:forEach>
                                         </ul>
                                     </div>
@@ -34,8 +35,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a href="top.action?typeid=2" >热销</a></li>
-                    <li><a href="top.action?typeid=3" >新品</a></li>
+                    <li><a href="${pageContext.request.contextPath}/goodsrecommend_list?type=2&pageNumber=1" >热销</a></li>
+                    <li><a href="${pageContext.request.contextPath}/goodsrecommend_list?type=3&pageNumber=1" >新品</a></li>
 
                     <li><a href="register.action?flag=-1" >注册</a></li>
                     <li><a href="login.action?flag=-1" >登录</a></li>

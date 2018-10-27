@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface TypeService {
     public List<Type> selectAll();
+
+    public Type select(int id);
 }
