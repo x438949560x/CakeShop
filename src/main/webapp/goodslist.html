@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>首页</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+	<link type="text/css" rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/simpleCart.min.js"></script>
+	<script type="text/javascript" src="layer/layer.js"></script>
+	<script type="text/javascript" src="js/cart.js"></script>
+</head>
+<body>
+	
+	
+
+
+
+
+
+	<!--header-->
+	<div class="header">
+		<div class="container">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<h1 class="navbar-brand"><a href="index.action">蛋糕店</a></h1>
+				</div>
+				<!--navbar-header-->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="index.action" >首页</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle active" data-toggle="dropdown">商品分类<b class="caret"></b></a>
+							<ul class="dropdown-menu multi-column columns-2">
+								<li>
+									<div class="row">
+										<div class="col-sm-12">
+											<h4>商品分类</h4>
+											<ul class="multi-column-dropdown">
+												
+													<li><a class="list" href="goods.action?typeid=5">经典系列</a></li>
+												
+													<li><a class="list" href="goods.action?typeid=4">法式系列</a></li>
+												
+													<li><a class="list" href="goods.action?typeid=3">儿童系列</a></li>
+												
+													<li><a class="list" href="goods.action?typeid=2">零食系列</a></li>
+												
+													<li><a class="list" href="goods.action?typeid=1">冰淇淋系列</a></li>
+												
+											</ul>
+										</div>	
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li><a href="top.action?typeid=2" >热销</a></li>
+						<li><a href="top.action?typeid=3" >新品</a></li>
+						
+							<li><a href="register.action?flag=-1" >注册</a></li>
+							<li><a href="login.action?flag=-1" >登录</a></li>
+						
+						
+						<li><a href="../admin.jsp" target="_blank">后台管理</a></li>
+					</ul> 
+					<!--/.navbar-collapse-->
+				</div>
+				<!--//navbar-header-->
+			</nav>
+			<div class="header-info">
+				<div class="header-right search-box">
+					<a href="javascript:;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>				
+					<div class="search">
+						<form class="navbar-form" action="search.action">
+							<input type="text" class="form-control" name="name">
+							<button type="submit" class="btn btn-default" aria-label="Left Align">搜索</button>
+						</form>
+					</div>	
+				</div>
+				
+				<div class="header-right cart">
+					<a href="cart.action">
+						<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><span class="card_num">0</span></span>
+					</a>
+				</div>
+				<div class="header-right login">
+					<a href="my.action"><span class="glyphicon" aria-hidden="true"></span></a>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+	<!--//header-->
+
+	
+	<!--products-->
+	<div class="products">	 
+		<div class="container">
+			<h2>经典系列</h2>
+					
+			<div class="col-md-12 product-model-sec">
+				
+					<div class="product-grid">
+						<a href="detail.action?goodid=6">				
+							<div class="more-product"><span> </span></div>						
+							<div class="product-img b-link-stripe b-animate-go  thickbox">
+								<img src="picture/6-1.jpg" class="img-responsive" alt="夜礼服" width="240" height="240">
+								<div class="b-wrapper">
+									<h4 class="b-animate b-from-left  b-delay03">							
+										<button>查看详情</button>
+									</h4>
+								</div>
+							</div>
+						</a>				
+						<div class="product-info simpleCart_shelfItem">
+							<div class="product-info-cust prt_name">
+								<h4>夜礼服</h4>								
+								<span class="item_price">¥ 299</span>
+								<input type="button" class="item_add items" value="加入购物车" onclick="buy(6)">
+								<div class="clearfix"> </div>
+							</div>												
+						</div>
+					</div>
+				
+					<div class="product-grid">
+						<a href="detail.action?goodid=5">				
+							<div class="more-product"><span> </span></div>						
+							<div class="product-img b-link-stripe b-animate-go  thickbox">
+								<img src="picture/5-1.jpg" class="img-responsive" alt="芒果列车" width="240" height="240">
+								<div class="b-wrapper">
+									<h4 class="b-animate b-from-left  b-delay03">							
+										<button>查看详情</button>
+									</h4>
+								</div>
+							</div>
+						</a>				
+						<div class="product-info simpleCart_shelfItem">
+							<div class="product-info-cust prt_name">
+								<h4>芒果列车</h4>								
+								<span class="item_price">¥ 269</span>
+								<input type="button" class="item_add items" value="加入购物车" onclick="buy(5)">
+								<div class="clearfix"> </div>
+							</div>												
+						</div>
+					</div>
+				
+					<div class="product-grid">
+						<a href="detail.action?goodid=4">				
+							<div class="more-product"><span> </span></div>						
+							<div class="product-img b-link-stripe b-animate-go  thickbox">
+								<img src="picture/4-1.jpg" class="img-responsive" alt="玫瑰物语" width="240" height="240">
+								<div class="b-wrapper">
+									<h4 class="b-animate b-from-left  b-delay03">							
+										<button>查看详情</button>
+									</h4>
+								</div>
+							</div>
+						</a>				
+						<div class="product-info simpleCart_shelfItem">
+							<div class="product-info-cust prt_name">
+								<h4>玫瑰物语</h4>								
+								<span class="item_price">¥ 299</span>
+								<input type="button" class="item_add items" value="加入购物车" onclick="buy(4)">
+								<div class="clearfix"> </div>
+							</div>												
+						</div>
+					</div>
+				
+					<div class="product-grid">
+						<a href="detail.action?goodid=3">				
+							<div class="more-product"><span> </span></div>						
+							<div class="product-img b-link-stripe b-animate-go  thickbox">
+								<img src="picture/3-1.jpg" class="img-responsive" alt="留恋之恋" width="240" height="240">
+								<div class="b-wrapper">
+									<h4 class="b-animate b-from-left  b-delay03">							
+										<button>查看详情</button>
+									</h4>
+								</div>
+							</div>
+						</a>				
+						<div class="product-info simpleCart_shelfItem">
+							<div class="product-info-cust prt_name">
+								<h4>留恋之恋</h4>								
+								<span class="item_price">¥ 229</span>
+								<input type="button" class="item_add items" value="加入购物车" onclick="buy(3)">
+								<div class="clearfix"> </div>
+							</div>												
+						</div>
+					</div>
+				
+					<div class="product-grid">
+						<a href="detail.action?goodid=2">				
+							<div class="more-product"><span> </span></div>						
+							<div class="product-img b-link-stripe b-animate-go  thickbox">
+								<img src="picture/2-1.jpg" class="img-responsive" alt="浪漫甜心" width="240" height="240">
+								<div class="b-wrapper">
+									<h4 class="b-animate b-from-left  b-delay03">							
+										<button>查看详情</button>
+									</h4>
+								</div>
+							</div>
+						</a>				
+						<div class="product-info simpleCart_shelfItem">
+							<div class="product-info-cust prt_name">
+								<h4>浪漫甜心</h4>								
+								<span class="item_price">¥ 229</span>
+								<input type="button" class="item_add items" value="加入购物车" onclick="buy(2)">
+								<div class="clearfix"> </div>
+							</div>												
+						</div>
+					</div>
+				
+					<div class="product-grid">
+						<a href="detail.action?goodid=1">				
+							<div class="more-product"><span> </span></div>						
+							<div class="product-img b-link-stripe b-animate-go  thickbox">
+								<img src="picture/1-1.jpg" class="img-responsive" alt="玫瑰花园" width="240" height="240">
+								<div class="b-wrapper">
+									<h4 class="b-animate b-from-left  b-delay03">							
+										<button>查看详情</button>
+									</h4>
+								</div>
+							</div>
+						</a>				
+						<div class="product-info simpleCart_shelfItem">
+							<div class="product-info-cust prt_name">
+								<h4>玫瑰花园</h4>								
+								<span class="item_price">¥ 229</span>
+								<input type="button" class="item_add items" value="加入购物车" onclick="buy(1)">
+								<div class="clearfix"> </div>
+							</div>												
+						</div>
+					</div>
+				
+				<div class="clearfix"> </div>
+			</div>
+			<div><div style='text-align:center;'>
+<a class='btn btn-info' disabled >首页</a>
+<a class='btn btn-info' disabled >上一页</a>
+<h2 style='display:inline;'>[1/1]</h2>
+<h2 style='display:inline;'>[6]</h2>
+<a class='btn btn-info' disabled >下一页</a>
+<a class='btn btn-info' disabled >尾页</a>
+<input type='text' class='form-control' style='display:inline;width:60px;' value=''/><a class='btn btn-info' href='javascript:void(0);' onclick='location.href="http://localhost:8080/test_cakeshop_jsp/index/goods.action?page="+(this.previousSibling.value)+"&typeid=5"'>GO</a>
+</div>
+</div>
+		</div>
+	</div>
+	<!--//products-->	
+	
+	
+
+
+
+
+	<!--footer-->
+	<div class="footer">
+		<div class="container">
+			<div class="text-center">
+				<p>SiKi学院 www.sikiedu.com © All rights Reseverd</p>
+	   		</div>
+		</div>
+	</div>
+	<!--//footer-->
+
+
+</body>
+</html>
