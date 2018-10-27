@@ -1,0 +1,171 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>个人中心</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+	<link type="text/css" rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/simpleCart.min.js"></script>
+</head>
+<body>
+
+	
+
+
+
+
+
+	<!--header-->
+	<div class="header">
+		<div class="container">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<h1 class="navbar-brand"><a href="index.action">蛋糕店</a></h1>
+				</div>
+				<!--navbar-header-->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="index.action" >首页</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle " data-toggle="dropdown">商品分类<b class="caret"></b></a>
+							<ul class="dropdown-menu multi-column columns-2">
+								<li>
+									<div class="row">
+										<div class="col-sm-12">
+											<h4>商品分类</h4>
+											<ul class="multi-column-dropdown">
+												
+													<li><a class="list" href="goods.action?typeid=5">经典系列</a></li>
+												
+													<li><a class="list" href="goods.action?typeid=4">法式系列</a></li>
+												
+													<li><a class="list" href="goods.action?typeid=3">儿童系列</a></li>
+												
+													<li><a class="list" href="goods.action?typeid=2">零食系列</a></li>
+												
+													<li><a class="list" href="goods.action?typeid=1">冰淇淋系列</a></li>
+												
+											</ul>
+										</div>	
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li><a href="top.action?typeid=2" >热销</a></li>
+						<li><a href="top.action?typeid=3" >新品</a></li>
+						
+						
+							<li><a href="order.action" >我的订单</a></li>
+							<li><a href="my.action" class="active">个人中心</a></li>
+							<li><a href="logout.action">退出</a></li>
+						
+						<li><a href="../admin.jsp" target="_blank">后台管理</a></li>
+					</ul> 
+					<!--/.navbar-collapse-->
+				</div>
+				<!--//navbar-header-->
+			</nav>
+			<div class="header-info">
+				<div class="header-right search-box">
+					<a href="javascript:;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>				
+					<div class="search">
+						<form class="navbar-form" action="search.action">
+							<input type="text" class="form-control" name="name">
+							<button type="submit" class="btn btn-default" aria-label="Left Align">搜索</button>
+						</form>
+					</div>	
+				</div>
+				
+				<div class="header-right cart">
+					<a href="cart.action">
+						<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><span class="card_num">5</span></span>
+					</a>
+				</div>
+				<div class="header-right login">
+					<a href="my.action"><span class="glyphicon" aria-hidden="true">123</span></a>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+	<!--//header-->
+
+	
+	<!--account-->
+	<div class="account">
+		<div class="container">
+			<div class="register">
+				
+				<form action="my.action" method="post"> 
+					<input type="hidden" name="user.id" value="1">
+					<div class="register-top-grid">
+						<h3>个人中心</h3>
+						
+						<h4>收货信息</h4>
+						<div class="input">
+							<span>收货人<label></label></span>
+							<input type="text" name="user.name" value="" placeholder="请输入收货"> 
+						</div>
+						<div class="input">
+							<span>收货电话</span>
+							<input type="text" name="user.phone" value="" placeholder="请输入收货电话"> 
+						</div>
+						<div class="input">
+							<span>收货地址</span>
+							<input type="text" name="user.address" value="" placeholder="请输入收货地址"> 
+						</div>
+						<div class="register-but text-center">
+						   <input type="submit" value="提交">
+						</div>	
+						<hr>
+						<h4>安全信息</h4>
+						<div class="input">
+							<span>原密码</span>
+							<input type="text" name="user.password" placeholder="请输入原密码"> 
+						</div>
+						<div class="input">
+							<span>新密码</span>
+							<input type="text" name="user.passwordNew" placeholder="请输入新密码"> 
+						</div>
+						<div class="clearfix"> </div>
+						<div class="register-but text-center">
+						   <input type="submit" value="提交">
+						</div>	
+					</div>
+				</form>
+				<div class="clearfix"> </div>
+			</div>
+	    </div>
+	</div>
+	<!--//account-->
+
+	
+
+
+
+
+	<!--footer-->
+	<div class="footer">
+		<div class="container">
+			<div class="text-center">
+				<p>SiKi学院 www.sikiedu.com © All rights Reseverd</p>
+	   		</div>
+		</div>
+	</div>
+	<!--//footer-->
+
+	
+</body>
+</html>

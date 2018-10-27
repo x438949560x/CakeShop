@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>客户列表</title>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="css/bootstrap.css"/> 
+</head>
+<body>
+<div class="container-fluid">
+
+	
+
+
+
+
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="">蛋糕店后台</a>
+			</div>
+			<div>
+				<ul class="nav navbar-nav">
+					<li ><a href="orderList.action">订单管理</a></li>
+					<li class="active"><a href="userList.action">客户管理</a></li>
+					<li ><a href="goodList.action">商品管理</a></li>
+					<li ><a href="typeList.action">类目管理</a></li>
+					<li ><a href="adminRe.action">修改密码</a></li>
+					<li><a href="logout.action">退出</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<div class="text-right"><a class="btn btn-warning" href="userAdd.action">添加客户</a></div>
+		
+	<br>
+	
+	<table class="table table-bordered table-hover">
+
+	<tr>
+		<th width="5%">ID</th>
+		<th width="10%">用户名</th>
+		<th width="10%">电话</th>
+		<th width="10%">地址</th>
+		<th width="10%">操作</th>
+	</tr>
+	
+	
+         <tr>
+         	<td><p>2</p></td>
+         	<td><p>12</p></td>
+         	<td><p></p></td>
+         	<td><p></p></td>
+			<td>
+				<a class="btn btn-info" href="userRe.action?id=2">重置密码</a>
+				<a class="btn btn-primary" href="userEdit.action?id=2">修改</a>
+				<a class="btn btn-danger" href="userDelete.action?user.id=2">删除</a>
+			</td>
+       	</tr>
+     
+         <tr>
+         	<td><p>1</p></td>
+         	<td><p>123</p></td>
+         	<td><p></p></td>
+         	<td><p></p></td>
+			<td>
+				<a class="btn btn-info" href="userRe.action?id=1">重置密码</a>
+				<a class="btn btn-primary" href="userEdit.action?id=1">修改</a>
+				<a class="btn btn-danger" href="userDelete.action?user.id=1">删除</a>
+			</td>
+       	</tr>
+     
+     
+</table>
+
+<br><div style='text-align:center;'>
+<a class='btn btn-info' disabled >首页</a>
+<a class='btn btn-info' disabled >上一页</a>
+<h2 style='display:inline;'>[1/1]</h2>
+<h2 style='display:inline;'>[2]</h2>
+<a class='btn btn-info' disabled >下一页</a>
+<a class='btn btn-info' disabled >尾页</a>
+<input type='text' class='form-control' style='display:inline;width:60px;' value=''/><a class='btn btn-info' href='javascript:void(0);' onclick='location.href="http://localhost:8080/test_cakeshop_jsp/admin/userList.action?page="+(this.previousSibling.value)+""'>GO</a>
+</div>
+<br>
+</div>
+</body>
+</html>
