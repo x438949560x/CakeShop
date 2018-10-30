@@ -16,9 +16,9 @@
             <!--navbar-header-->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="${pageContext.request.contextPath}" class="active">首页</a></li>
+                    <li><a href="${pageContext.request.contextPath}" <c:if test="${param.flag==1}">class="active"</c:if>>首页</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle " data-toggle="dropdown">商品分类<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle <c:if test="${param.flag==2}">active</c:if>" data-toggle="dropdown" >商品分类<b class="caret"></b></a>
                         <ul class="dropdown-menu multi-column columns-2">
                             <li>
                                 <div class="row">
@@ -35,14 +35,25 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a href="${pageContext.request.contextPath}/goodsrecommend_list?type=2&pageNumber=1" >热销</a></li>
-                    <li><a href="${pageContext.request.contextPath}/goodsrecommend_list?type=3&pageNumber=1" >新品</a></li>
+                    <li><a href="${pageContext.request.contextPath}/goodsrecommend_list?type=2&pageNumber=1" <c:if test="${param.flag==3 && t==2}">class="active"</c:if> >热销</a></li>
+                    <li><a href="${pageContext.request.contextPath}/goodsrecommend_list?type=3&pageNumber=1" <c:if test="${param.flag==3 && t==3}">class="active"</c:if> >新品</a></li>
+                    <c:choose>
+                        <c:when test="${empty user}">
+                            <li><a href="${pageContext.request.contextPath}/register.jsp" <c:if test="${param.flag==4}">class="active"</c:if>>注册</a></li>
+                            <li><a href="${pageContext.request.contextPath}/login.jsp" <c:if test="${param.flag==5}">class="active"</c:if>>登录</a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><a href="${pageContext.request.contextPath}/order_list" <c:if test="${param.flag==7}">class="active"</c:if>>我的订单</a></li>
+                            <li><a href="${pageContext.request.contextPath}/mycenter.jsp" <c:if test="${param.flag==6}">class="active"</c:if>>个人中心</a></li>
+                            <li><a href="${pageContext.request.contextPath}/user_logout">退出登录</a></li>
+                        </c:otherwise>
+                    </c:choose>
 
-                    <li><a href="register.action?flag=-1" >注册</a></li>
-                    <li><a href="login.action?flag=-1" >登录</a></li>
 
+                    <c:if test="${!empty user && user.isadmin}">
+                        <li><a href="../admin.jsp" target="_blank">后台管理</a></li>
+                    </c:if>
 
-                    <li><a href="../admin.jsp" target="_blank">后台管理</a></li>
                 </ul>
                 <!--/.navbar-collapse-->
             </div>
@@ -52,16 +63,16 @@
             <div class="header-right search-box">
                 <a href="javascript:;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
                 <div class="search">
-                    <form class="navbar-form" action="search.action">
-                        <input type="text" class="form-control" name="name">
+                    <form class="navbar-form" action="${pageContext.request.contextPath}/goods_search">
+                        <input type="text" class="form-control" name="keyword">
                         <button type="submit" class="btn btn-default" aria-label="Left Align">搜索</button>
                     </form>
                 </div>
             </div>
 
             <div class="header-right cart">
-                <a href="cart.action">
-                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><span class="card_num">0</span></span>
+                <a href="${pageContext.request.contextPath}/cart.jsp">
+                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><span class="card_num">${order.amount}</span></span>
                 </a>
             </div>
             <div class="header-right login">

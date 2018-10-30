@@ -5,8 +5,10 @@ import com.ccsu.domain.Goods;
 import com.ccsu.domain.Type;
 import com.ccsu.utils.JDBCUtils;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.MapHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.junit.Test;
 
 import javax.sql.DataSource;
@@ -54,4 +56,17 @@ public class TestQueryRunner {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void testGetById() {
+        QueryRunner r = new QueryRunner(ds);
+        String sql = "select g.id,g.name,g.image1,g.image2,g.price,g.intro,g.stock,t.id typeid,t.name typename from goods g,type t where g.id = ? and g.type_id=t.id";
+        try {
+            Goods goods = r.query(sql, new BeanHandler<Goods>(Goods.class), 2);
+            System.out.println(goods);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

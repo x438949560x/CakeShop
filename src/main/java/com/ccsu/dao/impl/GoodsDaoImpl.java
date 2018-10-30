@@ -2,13 +2,9 @@ package com.ccsu.dao.impl;
 
 import com.ccsu.dao.GoodsDao;
 import com.ccsu.domain.Goods;
-import com.ccsu.domain.Type;
 import com.ccsu.utils.JDBCUtils;
 import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.BeanListHandler;
-import org.apache.commons.dbutils.handlers.MapHandler;
-import org.apache.commons.dbutils.handlers.MapListHandler;
-import org.apache.commons.dbutils.handlers.ScalarHandler;
+import org.apache.commons.dbutils.handlers.*;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
@@ -66,5 +62,23 @@ public class GoodsDaoImpl implements GoodsDao {
     public int selectGoodsRecommendCount(int type) throws SQLException {
         String sql = "select count(*) from recommend where type=?";
         return r.query(sql, new ScalarHandler<Long>(),type).intValue();
+    }
+
+    @Override
+    public Goods getById(int id) throws SQLException {
+        String sql = "select g.id,g.name,g.cover,g.image1,g.image2,g.price,g.intro,g.stock,t.id typeid,t.name typename from goods g,type t where g.id = ? and g.type_id=t.id";
+        return r.query(sql, new BeanHandler<Goods>(Goods.class), id);
+    }
+
+    @Override
+    public int getSearchCount(String keyword) throws SQLException {
+        String sql = "select count(*) from goods where name like ?";
+        return r.query(sql, new ScalarHandler<Long>(), "%"+keyword+"%").intValue();
+    }
+
+    @Override
+    public List<Goods> selectSearchGoods(String keyword, int pageNumber, int pageSize) throws SQLException {
+        String sql = "select id,name,cover,price from goods where name like ? limit ?,?";
+        return r.query(sql, new BeanListHandler<Goods>(Goods.class),"%"+keyword+"%",(pageNumber-1)*pageSize,pageSize);
     }
 }

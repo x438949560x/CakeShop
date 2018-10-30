@@ -18,7 +18,9 @@
 <body>
 
 
-<jsp:include page="/header.jsp"></jsp:include>
+<jsp:include page="/header.jsp">
+    <jsp:param name="flag" value="2"/>
+</jsp:include>
 
 <!--products-->
 <div class="products">
@@ -28,7 +30,7 @@
         <div class="col-md-12 product-model-sec">
             <c:forEach items="${page.list}" var="g">
             <div class="product-grid">
-                <a href="detail.action?goodid=${g.id}">
+                <a href="${pageContext.request.contextPath}/goods_detail?id=${g.id}">
                     <div class="more-product"><span> </span></div>
                     <div class="product-img b-link-stripe b-animate-go  thickbox">
                         <img src="${pageContext.request.contextPath}${g.cover}" class="img-responsive" alt="${g.name}" width="240" height="240">

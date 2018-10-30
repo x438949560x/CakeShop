@@ -15,4 +15,8 @@ public interface GoodsService {
     public Page getGoodsPage(int typeId, int pageNumber, int pageSize);
 
     public Page getGoodsRecommendPage(int type, int pageNumber, int pageSize);
+
+    public Goods getById(int id);
+
+    Page getSearchGoodsPage(String keyword, int pageNo);
 }

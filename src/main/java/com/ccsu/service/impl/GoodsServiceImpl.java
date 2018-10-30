@@ -68,4 +68,32 @@ public class GoodsServiceImpl implements GoodsService {
         }
         return p;
     }
+
+    @Override
+    public Goods getById(int id) {
+        Goods g = null;
+        try{
+            g = goodsDao.getById(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return g;
+    }
+
+    @Override
+    public Page getSearchGoodsPage(String keyword, int pageNumber) {
+        Page p = new Page();
+        List list = null;
+        p.setPageNumber(pageNumber);
+        int totalCount = 0;
+        try {
+            totalCount = goodsDao.getSearchCount(keyword);
+            p.setPageSizeAndTotalCount(8, totalCount);
+            list = goodsDao.selectSearchGoods(keyword, pageNumber, 8);
+            p.setList(list);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return p;
+    }
 }
