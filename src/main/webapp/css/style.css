@@ -1438,7 +1438,7 @@ p span.overline{
 	text-transform: uppercase;
 	margin-bottom: 4px;
 }
-.register-top-grid input[type="text"], .register-bottom-grid input[type="password"] {
+.register-top-grid input[type="text"], .register-top-grid input[type="password"],.register-bottom-grid input[type="password"] {
 	border: 1px solid #555;
 	outline-color:#FD9F3E;
 	width: 96%;

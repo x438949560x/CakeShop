@@ -28,6 +28,20 @@ public class Goods {
         this.type_id = type_id;
     }
 
+    public void setTypeid(int typeid) {
+        if(type_id==null){
+            type_id = new Type();
+        }
+        type_id.setId(typeid);
+    }
+
+    public void setTypename(String typename) {
+        if(type_id==null){
+            type_id = new Type();
+        }
+        type_id.setName(typename);
+    }
+
     public int getId() {
         return id;
     }
@@ -94,9 +108,9 @@ public class Goods {
 
     public Type getType_id() {
         return type_id;
-    }
+    }  // 返回type对象
 
     public void setType_id(Type type_id) {
         this.type_id = type_id;
-    }
+    }  // 接收type对象
 }

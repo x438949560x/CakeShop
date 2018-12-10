@@ -18,4 +18,10 @@ public interface GoodsDao {
     public List<Goods> selectGoodsRecommend(int type, int pageNumber, int pageSize) throws SQLException;
 
     public int selectGoodsRecommendCount(int type) throws SQLException;
+
+    public Goods getById(int id) throws SQLException;
+
+    int getSearchCount(String keyword) throws SQLException;
+
+    List selectSearchGoods(String keyword, int pageNumber, int i) throws SQLException;
 }

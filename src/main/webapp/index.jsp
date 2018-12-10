@@ -15,16 +15,18 @@
 </head>
 <body>
 <!-- 头部 -->
-<jsp:include page="/header.jsp"></jsp:include>
+<jsp:include page="/header.jsp">
+	<jsp:param name="flag" value="1"/>
+</jsp:include>
 
 	<!--banner-->
 		<div class="banner">
 			<div class="container">
-				<h2 class="hdng"><a href="detail.action?goodid=${banner.id}">${banner.name}</a><span></span></h2>
+				<h2 class="hdng"><a href="${pageContext.request.contextPath}/goods_detail?id=${banner.id}">${banner.name}</a><span></span></h2>
 				<p>今日精选推荐</p>
 				<a class="banner_a" href="javascript:;" onclick="buy(${banner.id})">立刻购买</a>
 				<div class="banner-text">		
-					<a href="detail.action?goodid=${banner.id}">
+					<a href="${pageContext.request.contextPath}/goods_detail?id=${banner.id}">
 						<img src="${pageContext.request.contextPath}${banner.cover}" alt="${banner.name}" width="350" height="350">
 					</a>	
 				</div>
@@ -41,13 +43,13 @@
 			<div class="gallery-grids">
 				<c:forEach items="${hotList}" var="g">
 					<div class="col-md-4 gallery-grid glry-two">
-						<a href="detail.action?goodid=${g.id}">
+						<a href="${pageContext.request.contextPath}/goods_detail?id=${g.id}">
 							<img src="${pageContext.request.contextPath}${g.cover}" class="img-responsive" alt="${g.name}" width="350" height="350"/>
 						</a>
 						<div class="gallery-info galrr-info-two">
 							<p>
 								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-								<a href="detail.action?goodid=${g.id}">查看详情</a>
+								<a href="${pageContext.request.contextPath}/goods_detail?id=${g.id}">查看详情</a>
 							</p>
 							<a class="shop" href="javascript:;" onclick="buy(${g.id})">立刻购买</a>
 							<div class="clearfix"> </div>
@@ -70,13 +72,13 @@
 			<div class="gallery-grids">
 				<c:forEach items="${newList}" var="g">
 					<div class="col-md-3 gallery-grid ">
-						<a href="detail.action?goodid=${g.id}">
+						<a href="${pageContext.request.contextPath}/goods_detail?id=${g.id}">
 							<img src="${pageContext.request.contextPath}${g.cover}" class="img-responsive" alt="${g.name}"/>
 						</a>
 						<div class="gallery-info">
 							<p>
 								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> 
-								<a href="detail.action?goodid=${g.id}">查看详情</a>
+								<a href="${pageContext.request.contextPath}/goods_detail?id=${g.id}">查看详情</a>
 							</p>
 							<a class="shop" href="javascript:;" onclick="buy(${g.id})">立刻购买</a>
 							<div class="clearfix"> </div>
