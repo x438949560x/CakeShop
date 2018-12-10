@@ -15,4 +15,8 @@ public interface OrderDao {
     public List<Order> selectAll(int userid) throws SQLException;
 
     public List<OrderItem> selectAllItem(int orderid) throws SQLException;
+
+    int getOrderCount(int status) throws SQLException;
+
+    List<Order> selectOrderList(int status,int pageNumber, int pageSize) throws SQLException;
 }

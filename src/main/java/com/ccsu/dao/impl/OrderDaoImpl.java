@@ -50,4 +50,29 @@ public class OrderDaoImpl implements OrderDao {
         String sql = "select i.id,i.price,i.amount,g.name from orderitem i,goods g where order_id=? and i.goods_id=g.id";
         return r1.query(sql, new BeanListHandler<OrderItem>(OrderItem.class),orderid);
     }
+
+    @Override
+    public int getOrderCount(int status) throws SQLException {
+        QueryRunner r1 = new QueryRunner(ds);
+        String sql = "";
+        if(status==0) {
+            sql = "select count(*) from `order`";
+            return r1.query(sql, new ScalarHandler<Long>()).intValue();
+        }else{
+            sql = "select count(*) from `order` where status = ?";
+            return r1.query(sql, new ScalarHandler<Long>(), status).intValue();
+        }
+    }
+
+    @Override
+    public List<Order> selectOrderList(int status,int pageNumber, int pageSize) throws SQLException {
+        QueryRunner r1 = new QueryRunner(ds);
+        if(status==0){
+            String sql = "select o.id,o.total,o.amount,o.status,o.paytype,o.name,o.phone,o.address,o.datetime,u.username from `order` o,user u where o.user_id=u.id limit ?,?";
+            return r1.query(sql, new BeanListHandler<Order>(Order.class),(pageNumber-1)*pageSize, pageSize);
+        }else{
+            String sql = "select o.id,o.total,o.amount,o.status,o.paytype,o.name,o.phone,o.address,o.datetime,u.username from `order` o,user u where o.user_id=u.id and o.status = ? limit ?,?";
+            return r1.query(sql, new BeanListHandler<Order>(Order.class), status, (pageNumber-1)*pageSize, pageSize);
+        }
+    }
 }

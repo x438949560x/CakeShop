@@ -18,6 +18,11 @@ public class Order {
     private Map<Integer, OrderItem> orderItemMap = new HashMap<>();
     private List<OrderItem> item = new ArrayList<>();
 
+    public void setUsername(String username) {
+        user = new User();
+        user.setUsername(username);
+    }
+
     public List<OrderItem> getItem() {
         return item;
     }
