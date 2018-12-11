@@ -53,3 +53,12 @@ function deletes(goodid){
 		}
 	});
 }
+
+/**
+ * 商品价格排序
+ */
+function goodsPriceSort(typeid,pageNumber){
+	var obj = document.getElementById("pid");
+	var sortId = obj.options[obj.selectedIndex].value;
+	location.href = "/CakeShop/goods_list?id="+typeid+"&pageNumber="+pageNumber+"&sortId="+sortId;
+}

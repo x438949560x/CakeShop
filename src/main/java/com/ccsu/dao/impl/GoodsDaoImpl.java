@@ -22,6 +22,7 @@ public class GoodsDaoImpl implements GoodsDao {
         String sql = "select g.id,g.name,g.cover,g.price,r.type,t.name typeName from goods g,type t,recommend r where g.id=r.goods_id and g.type_id=t.id and r.type=?";
         return r.query(sql, new MapListHandler(), id);
     }
+
     // 查询横幅
     @Override
     public Map<String, Object> getScrollGoods() throws SQLException {
@@ -36,6 +37,28 @@ public class GoodsDaoImpl implements GoodsDao {
             return r.query(sql, new BeanListHandler<Goods>(Goods.class), (pageNumber-1)*pageSize,pageSize);
         }else{
             String sql = "select g.id,g.name,g.cover,g.price from goods g where g.type_id = ? limit ?,?";
+            return r.query(sql, new BeanListHandler<Goods>(Goods.class), typeId,(pageNumber-1)*pageSize,pageSize);
+        }
+    }
+
+    @Override
+    public List<Goods> selectGoodsByPriceDesc(int typeId, int pageNumber, int pageSize) throws SQLException {
+        if(typeId==0){
+            String sql = "select g.id,g.name,g.cover,g.price from goods g order by g.price desc limit ?,?";
+            return r.query(sql, new BeanListHandler<Goods>(Goods.class), (pageNumber-1)*pageSize,pageSize);
+        }else{
+            String sql = "select g.id,g.name,g.cover,g.price from goods g where g.type_id = ? order by g.price desc limit ?,?";
+            return r.query(sql, new BeanListHandler<Goods>(Goods.class), typeId,(pageNumber-1)*pageSize,pageSize);
+        }
+    }
+
+    @Override
+    public List<Goods> selectGoodsByPriceAsc(int typeId, int pageNumber, int pageSize) throws SQLException {
+        if(typeId==0){
+            String sql = "select g.id,g.name,g.cover,g.price from goods g order by g.price asc limit ?,?";
+            return r.query(sql, new BeanListHandler<Goods>(Goods.class), (pageNumber-1)*pageSize,pageSize);
+        }else{
+            String sql = "select g.id,g.name,g.cover,g.price from goods g where g.type_id = ? order by g.price asc limit ?,?";
             return r.query(sql, new BeanListHandler<Goods>(Goods.class), typeId,(pageNumber-1)*pageSize,pageSize);
         }
     }

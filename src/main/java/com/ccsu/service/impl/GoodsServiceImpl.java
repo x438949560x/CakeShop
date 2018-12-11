@@ -24,6 +24,7 @@ public class GoodsServiceImpl implements GoodsService {
          }
         return list;
     }
+
     // 返回横幅商品
     @Override
     public Map<String, Object> getScrollGoods() {
@@ -36,7 +37,7 @@ public class GoodsServiceImpl implements GoodsService {
         return scroll;
     }
     // 返回分页模型
-    public Page getGoodsPage(int typeId, int pageNumber, int pageSize) {
+    public Page getGoodsPage(int typeId, int pageNumber, int pageSize, int sortId) {
         Page p = new Page();
         List list = null;
         p.setPageNumber(pageNumber);
@@ -44,7 +45,14 @@ public class GoodsServiceImpl implements GoodsService {
         try {
             totalCount = goodsDao.getGoodsCount(typeId);
             p.setPageSizeAndTotalCount(pageSize, totalCount);
-            list = goodsDao.selectGoods(typeId, pageNumber, pageSize);
+            if(sortId == 1){ // 正序
+                list = goodsDao.selectGoodsByPriceAsc(typeId, pageNumber, pageSize);
+            }
+            else if(sortId == 2){ // 反序
+                list = goodsDao.selectGoodsByPriceDesc(typeId, pageNumber, pageSize);
+            }else{
+                list = goodsDao.selectGoods(typeId, pageNumber, pageSize);
+            }
             p.setList(list);
         } catch (SQLException e) {
             e.printStackTrace();

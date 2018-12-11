@@ -9,11 +9,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
     <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap-select.min.css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/simpleCart.min.js"></script>
     <script type="text/javascript" src="layer/layer.js"></script>
     <script type="text/javascript" src="js/cart.js"></script>
+    <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
 </head>
 <body>
 
@@ -26,7 +28,16 @@
 <div class="products">
     <div class="container">
         <h2><c:choose><c:when test="${empty t}">全部系列</c:when><c:otherwise>${t.name}</c:otherwise></c:choose></h2>
-
+        <div class="line"></div>
+        <div class="sort-container">
+            <div class="sort-content">
+                <select id="pid" onchange="goodsPriceSort(${t.id},${page.pageNumber})" class="selectpicker" title="价格排序">
+                    <option style='display: none'></option>
+                    <option value="1">价格从低到高</option>
+                    <option value="2">价格从高到低</option>
+                </select>
+            </div>
+        </div>
         <div class="col-md-12 product-model-sec">
             <c:forEach items="${page.list}" var="g">
             <div class="product-grid">

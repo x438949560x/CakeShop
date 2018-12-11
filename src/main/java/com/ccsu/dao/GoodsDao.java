@@ -13,6 +13,10 @@ public interface GoodsDao {
 
     public List<Goods> selectGoods(int typeId, int pageNumber, int pageSize) throws SQLException;
 
+    public List<Goods> selectGoodsByPriceDesc(int typeId, int pageNumber, int pageSize) throws SQLException;
+
+    public List<Goods> selectGoodsByPriceAsc(int typeId, int pageNumber, int pageSize) throws SQLException;
+
     public int getGoodsCount(int typeId) throws SQLException;
 
     public List<Goods> selectGoodsRecommend(int type, int pageNumber, int pageSize) throws SQLException;
