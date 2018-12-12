@@ -3321,3 +3321,17 @@ h2 {
 }
 }
 /*--//responsive-design---*/
+
+.sort-container{
+
+}
+.sort-content{
+
+}
+.line{
+    width: 100%;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    height: 1px;
+    background-color: #87807c;
+}

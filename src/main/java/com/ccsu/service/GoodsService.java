@@ -12,7 +12,7 @@ public interface GoodsService {
 
     public Map<String, Object> getScrollGoods();
 
-    public Page getGoodsPage(int typeId, int pageNumber, int pageSize);
+    public Page getGoodsPage(int typeId, int pageNumber, int pageSize, int sortId);
 
     public Page getGoodsRecommendPage(int type, int pageNumber, int pageSize);
 

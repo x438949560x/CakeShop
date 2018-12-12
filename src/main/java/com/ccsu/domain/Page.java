@@ -8,6 +8,15 @@ public class Page {
     private int pageSize;  // 每一页显示多少条数据
     private int totalCount; // 总记录数
     private int totalPage; // 总页数
+    private int sortId; // 排序
+
+    public int getSortId() {
+        return sortId;
+    }
+
+    public void setSortId(int sortId) {
+        this.sortId = sortId;
+    }
 
     private List<Object> list; // 数据集合,存放的东西不可知
 

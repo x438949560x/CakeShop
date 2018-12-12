@@ -24,15 +24,22 @@ public class GoodsListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
         String pageNumber = request.getParameter("pageNumber");
+        String sortId = request.getParameter("sortId");
         Type t = null;
         if(hasLength(id) && hasLength(pageNumber)){
-            Page p = goodsService.getGoodsPage(Integer.valueOf(id), Integer.valueOf(pageNumber), 8);
-            request.setAttribute("page", p);
-            request.setAttribute("id", id);
+            Page p = null;
+            if(hasLength(sortId)){
+                p = goodsService.getGoodsPage(Integer.valueOf(id), Integer.valueOf(pageNumber), 8, Integer.valueOf(sortId));
+                p.setSortId(Integer.valueOf(sortId));
+            }else{ // 无序
+                p = goodsService.getGoodsPage(Integer.valueOf(id), Integer.valueOf(pageNumber), 8, 0);
+            }
+            request.getSession().setAttribute("page", p);
+            request.getSession().setAttribute("id", id);
             if(Integer.valueOf(id)!=0){
                 t = typeService.select(Integer.valueOf(id));
             }
-            request.setAttribute("t",t);
+            request.getSession().setAttribute("t",t);
         }
 
         request.getRequestDispatcher("/goodslist.jsp").forward(request, response);
